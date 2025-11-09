@@ -143,11 +143,6 @@
     transform: scale(1.05);
   }
 
-  /* Hidden Spotify Player */
-  audio {
-    display: none;
-  }
-
   /* Back Button */
   .back-btn {
     position: fixed;
@@ -182,11 +177,11 @@
 
 <!-- Envelope Card -->
 <div class="card visible" id="envelopeCard">
-  <img src="https://i.pinimg.com/736x/d2/6d/d6/d26dd6d558db9417313140ef0754b70b.jpg" alt="pink envelope">
+  <img src="https://static.wikia.nocookie.net/needy-streamer-overload/images/c/cc/Tweet_selfie_cho_happy_002.png/revision/latest?cb=20220228052148" alt="pink envelope">
   <h2>Do you want to open it?</h2>
   <p>"ヾ(˃̶⺫˂̶)ノ"</p>
   <div class="buttons">
-    <button class="yes" onclick="openLetter()">Open it!</button>
+    <button class="yes" onclick="askPassword()">Open it!</button>
     <button class="no" onclick="noThanks()">No ty</button>
   </div>
 </div>
@@ -201,8 +196,8 @@
 
     <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not, so don't laugh please!!.</p>
 
-    <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and bounderies, but that does not make me less like and love you. I know this is cheesy or corny but 
-        it is made of hardwork and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
+    <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and boundaries, but that does not make me less like and love you. I know this is cheesy or corny but 
+        it is made of hard work and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
 
     <div class="button-container">
       <button onclick="startOver()">Start Over ♥</button>
@@ -222,6 +217,16 @@
 
 <script>
   const spotifyPlayer = document.getElementById("spotifyPlayer");
+  const correctPassword = "iloveeri"; // ← change this to your desired password
+
+  function askPassword() {
+    const input = prompt("HIHI💌");
+    if (input === correctPassword) {
+      openLetter();
+    } else if (input !== null) {
+      alert("Incorrect password! Try again (´•︵•`)");
+    }
+  }
 
   function openLetter() {
     const envelope = document.getElementById("envelopeCard");
@@ -229,7 +234,7 @@
 
     envelope.classList.remove("visible");
     envelope.classList.add("fade");
-    
+
     spotifyPlayer.src = "https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?autoplay=1";
 
     setTimeout(() => {
@@ -260,4 +265,3 @@
 
 </body>
 </html>
-
