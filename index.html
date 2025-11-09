@@ -148,6 +148,30 @@
     display: none;
   }
 
+  /* Back Button */
+  .back-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ffb6c1;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(255, 182, 193, 0.35);
+    transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .back-btn:hover {
+    background-color: #ff99b7;
+    transform: scale(1.05);
+  }
+
   @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
@@ -158,7 +182,7 @@
 
 <!-- Envelope Card -->
 <div class="card visible" id="envelopeCard">
-  <img src="https://i.pinimg.com/736x/1c/37/32/1c3732dfc24ca60157bfbaca7a42de71.jpg">
+  <img src="https://static.wikia.nocookie.net/needy-streamer-overload/images/c/cc/Tweet_selfie_cho_happy_002.png/revision/latest?cb=20220228052148" alt="pink envelope">
   <h2>Do you want to open it?</h2>
   <p>"ヾ(˃̶⺫˂̶)ノ"</p>
   <div class="buttons">
@@ -167,6 +191,7 @@
   </div>
 </div>
 
+<!-- Love Letter -->
 <div class="letter fade" id="loveLetter">
   <img src="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" alt="Love Photo">
   <div class="letter-content">
@@ -174,10 +199,10 @@
     <h3>(^o^)</h3>
     <p>HIIIIIIIII, It has been a month since you said "yes" to my confession and I will always be thankful for that, I was planning to buy flowers for you but there is a typhoon so the flower shops I went is closed.</p>
 
-    <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not,so don't laugh please!!.  </p>
+    <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not, so don't laugh please!!.</p>
 
-    <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and bounderies, but that does not make me less like and love you, I know ts is cheezy or corny but 
-        it is made of hardwork and lots of planning, so I do hope you like this one, once again thank you for giving me a chance and happy 1 month of being with me.</p>
+    <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and bounderies, but that does not make me less like and love you. I know this is cheesy or corny but 
+        it is made of hardwork and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
 
     <div class="button-container">
       <button onclick="startOver()">Start Over ♥</button>
@@ -185,11 +210,15 @@
   </div>
 </div>
 
+<!-- Spotify Player -->
 <iframe id="spotifyPlayer" 
   src="https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?utm_source=generator&theme=0" 
   width="0" height="0" 
   frameborder="0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy">
 </iframe>
+
+<!-- Back Button (link) -->
+<a href="https://irolami.github.io/Spacelori/" class="back-btn">Back</a>
 
 <script>
   const spotifyPlayer = document.getElementById("spotifyPlayer");
@@ -211,7 +240,7 @@
   }
 
   function noThanks() {
-    alert("BUT WHY??!!!😢 PLEASE READ ITT :(((((~");
+    alert("Aww 😢 maybe next time~");
   }
 
   function startOver() {
@@ -231,5 +260,3 @@
 
 </body>
 </html>
-
-
