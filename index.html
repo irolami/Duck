@@ -1,268 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Open the Letter 💌</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Poppins:wght@400;600&display=swap');
+  <meta charset="UTF-8" />
 
-  body {
-    background-color: #fff6fa;
-    background-image: url('https://i.pinimg.com/736x/0f/9a/54/0f9a54e13c31004cd4ccbfbec1cadcec.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    font-family: 'Quicksand', sans-serif;
-    text-align: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 1s ease;
-  }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#ffb6c1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="description" content="💌 A sweet interactive letter for my significant other." />
 
-  .fade {
-    opacity: 0;
-    transition: opacity 1s ease;
-  }
+  <link rel="apple-touch-icon" href="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" />
+  <link rel="icon" type="image/png" href="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" />
 
-  .visible {
-    opacity: 1;
-  }
+  <title>Open the Letter 💌</title>
 
-  .card, .letter {
-    background: rgba(255, 255, 255, 0.85);
-    border: 2px solid #ffbcd9;
-    border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.35);
-    padding: 40px 30px;
-    max-width: 420px;
-    text-align: center;
-    transition: all 0.4s ease;
-    position: absolute;
-  }
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Poppins:wght@400;600&display=swap');
 
-  .card img {
-    width: 180px;
-    height: 130px;
-    border-radius: 12px;
-    border: 2px solid #ffcce0;
-  }
+    body {
+      background-color: #fff6fa;
+      background-image: url('https://i.pinimg.com/736x/0f/9a/54/0f9a54e13c31004cd4ccbfbec1cadcec.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 1s ease;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+    }
 
-  h2 {
-    color: #ff80a8;
-    margin-top: 20px;
-    font-size: 18px; 
-  }
+    .fade {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
 
-  p {
-    color: #ff94b4;
-    font-size: 13px;
-  }
+    .visible {
+      opacity: 1;
+    }
 
-  .buttons {
-    margin-top: 25px;
-  }
+    .card, .letter {
+      background: rgba(255, 255, 255, 0.85);
+      border: 2px solid #ffbcd9;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(255, 182, 193, 0.35);
+      padding: 40px 30px;
+      max-width: 420px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: absolute;
+    }
 
-  button {
-    border: none;
-    border-radius: 25px;
-    padding: 8px 18px;
-    font-size: 14px;
-    cursor: pointer;
-    margin: 8px;
-    transition: 0.2s;
-    font-weight: bold;
-  }
+    .card img {
+      width: 180px;
+      height: 130px;
+      border-radius: 12px;
+      border: 2px solid #ffcce0;
+      object-fit: cover;
+    }
 
-  .yes, .no {
-    background-color: #ffb6c1;
-    color: white;
-  }
+    h2 {
+      color: #ff80a8;
+      margin-top: 20px;
+      font-size: 18px; 
+    }
 
-  button:hover {
-    transform: scale(1.1);
-  }
+    p {
+      color: #ff94b4;
+      font-size: 13px;
+    }
 
-  /* Love Letter Card */
-  .letter {
-    display: none;
-    max-width: 450px;
-    overflow: hidden;
-    animation: fadeIn 1s ease forwards;
-  }
+    .buttons {
+      margin-top: 25px;
+    }
 
-  .letter img {
-    width: 30%;
-    height: auto;
-    border-bottom: 2px solid #ffbcd9;
-  }
+    button {
+      border: none;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.2s;
+      font-weight: bold;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  .letter-content {
-    padding: 20px;
-  }
+    .yes, .no {
+      background-color: #ffb6c1;
+      color: white;
+    }
 
-  .letter-content h2 {
-    color: #ff80a8;
-    margin-bottom: 5px;
-    font-size: 22px;
-  }
+    button:hover {
+      transform: scale(1.1);
+    }
 
-  .letter-content h3 {
-    color: #ff80a8;
-    margin-top: 0;
-    font-size: 16px;
-  }
+    /* Love Letter Card */
+    .letter {
+      display: none;
+      max-width: 450px;
+      overflow: hidden;
+      animation: fadeIn 1s ease forwards;
+    }
 
-  .letter-content p {
-    color: #444;
-    font-size: 14px;
-    line-height: 1.7;
-    text-align: justify;
-  }
+    .letter img {
+      width: 30%;
+      height: auto;
+      border-bottom: 2px solid #ffbcd9;
+    }
 
-  .button-container {
-    margin: 25px 0 15px;
-  }
+    .letter-content {
+      padding: 20px;
+    }
 
-  .button-container button {
-    background-color: #ffb6c1;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 22px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+    .letter-content h2 {
+      color: #ff80a8;
+      margin-bottom: 5px;
+      font-size: 22px;
+    }
 
-  .button-container button:hover {
-    background-color: #ff99b7;
-    transform: scale(1.05);
-  }
+    .letter-content h3 {
+      color: #ff80a8;
+      margin-top: 0;
+      font-size: 16px;
+    }
 
-  /* Back Button */
-  .back-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ffb6c1;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 22px;
-    font-size: 14px;
-    font-family: 'Quicksand', sans-serif;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(255, 182, 193, 0.35);
-    transition: 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-  }
+    .letter-content p {
+      color: #444;
+      font-size: 14px;
+      line-height: 1.7;
+      text-align: justify;
+    }
 
-  .back-btn:hover {
-    background-color: #ff99b7;
-    transform: scale(1.05);
-  }
+    .button-container {
+      margin: 25px 0 15px;
+    }
 
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-</style>
+    .button-container button {
+      background-color: #ffb6c1;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 22px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .button-container button:hover {
+      background-color: #ff99b7;
+      transform: scale(1.05);
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #ffb6c1;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-family: 'Quicksand', sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(255, 182, 193, 0.35);
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .back-btn:hover {
+      background-color: #ff99b7;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
 </head>
 <body>
 
-<!-- Envelope Card -->
-<div class="card visible" id="envelopeCard">
-  <img src="https://i.pinimg.com/736x/d2/6d/d6/d26dd6d558db9417313140ef0754b70b.jpg" alt="pink envelope">
-  <h2>Do you want to open it?</h2>
-  <p>"ヾ(˃̶⺫˂̶)ノ"</p>
-  <div class="buttons">
-    <button class="yes" onclick="askPassword()">Open it!</button>
-    <button class="no" onclick="noThanks()">No ty</button>
-  </div>
-</div>
-
-<!-- Love Letter -->
-<div class="letter fade" id="loveLetter">
-  <img src="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" alt="Love Photo">
-  <div class="letter-content">
-    <h2>To my Eri</h2>
-    <h3>(^o^)</h3>
-    <p>HIIIIIIIII, It has been a month since you said "yes" to my confession and I will always be thankful for that, I was planning to buy flowers for you but there is a typhoon so the flower shops I went is closed.</p>
-
-    <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not, so don't laugh please!!.</p>
-
-    <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and boundaries, but that does not make me less like and love you. I know this is cheesy or corny but 
-        it is made of hard work and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
-
-    <div class="button-container">
-      <button onclick="startOver()">Start Over ♥</button>
+  <!-- Envelope Card -->
+  <div class="card visible" id="envelopeCard">
+    <img src="https://static.wikia.nocookie.net/needy-streamer-overload/images/c/cc/Tweet_selfie_cho_happy_002.png/revision/latest?cb=20220228052148" alt="pink envelope">
+    <h2>Do you want to open it?</h2>
+    <p>"ヾ(˃̶⺫˂̶)ノ"</p>
+    <div class="buttons">
+      <button class="yes" onclick="askPassword()">Open it!</button>
+      <button class="no" onclick="noThanks()">No ty</button>
     </div>
   </div>
-</div>
 
-<!-- Spotify Player -->
-<iframe id="spotifyPlayer" 
-  src="https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?utm_source=generator&theme=0" 
-  width="0" height="0" 
-  frameborder="0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy">
-</iframe>
+  <!-- Love Letter -->
+  <div class="letter fade" id="loveLetter">
+    <img src="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" alt="Love Photo">
+    <div class="letter-content">
+      <h2>To my Eri</h2>
+      <h3>(^o^)</h3>
+      <p>HIIIIIIIII, It has been a month since you said "yes" to my confession and I will always be thankful for that, I was planning to buy flowers for you but there is a typhoon so the flower shops I went is closed.</p>
 
-<!-- Back Button (link) -->
-<a href="https://irolami.github.io/Spacelori/" class="back-btn">Back</a>
+      <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not, so don't laugh please!!.</p>
 
-<script>
-  const spotifyPlayer = document.getElementById("spotifyPlayer");
-  const correctPassword = "iloveeri"; // ← change this to your desired password
+      <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and boundaries, but that does not make me less like and love you. I know this is cheesy or corny but 
+          it is made of hard work and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
 
-  function askPassword() {
-    const input = prompt("HIHI💌");
-    if (input === correctPassword) {
-      openLetter();
-    } else if (input !== null) {
-      alert("Incorrect password! Try again (´•︵•`)");
+      <div class="button-container">
+        <button onclick="startOver()">Start Over ♥</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spotify Player -->
+  <iframe id="spotifyPlayer" 
+    src="https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?utm_source=generator&theme=0" 
+    width="0" height="0" 
+    frameborder="0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy">
+  </iframe>
+
+  <!-- Back Button (link) -->
+  <a href="https://irolami.github.io/Spacelori/" class="back-btn">Back</a>
+
+  <script>
+    const spotifyPlayer = document.getElementById("spotifyPlayer");
+    const correctPassword = "iloveeri"; // ← change this to your desired password
+
+    function askPassword() {
+      const input = prompt("HIHI💌");
+      if (input === correctPassword) {
+        openLetter();
+      } else if (input !== null) {
+        alert("Incorrect password! Try again (´•︵•`)");
+      }
     }
-  }
 
-  function openLetter() {
-    const envelope = document.getElementById("envelopeCard");
-    const letter = document.getElementById("loveLetter");
+    function openLetter() {
+      const envelope = document.getElementById("envelopeCard");
+      const letter = document.getElementById("loveLetter");
 
-    envelope.classList.remove("visible");
-    envelope.classList.add("fade");
+      envelope.classList.remove("visible");
+      envelope.classList.add("fade");
 
-    spotifyPlayer.src = "https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?autoplay=1";
+      spotifyPlayer.src = "https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?autoplay=1";
 
-    setTimeout(() => {
-      envelope.style.display = "none";
-      letter.style.display = "block";
-      setTimeout(() => letter.classList.add("visible"), 50);
-    }, 800);
-  }
+      setTimeout(() => {
+        envelope.style.display = "none";
+        letter.style.display = "block";
+        setTimeout(() => letter.classList.add("visible"), 50);
+      }, 800);
+    }
 
-  function noThanks() {
-    alert("Aww 😢 maybe next time~");
-  }
+    function noThanks() {
+      alert("BUT WHYYYY?? DO YOU NOT LOVE ME ANYMORE??? (╥_╥)");
+    }
 
-  function startOver() {
-    const envelope = document.getElementById("envelopeCard");
-    const letter = document.getElementById("loveLetter");
+    function startOver() {
+      const envelope = document.getElementById("envelopeCard");
+      const letter = document.getElementById("loveLetter");
 
-    letter.classList.remove("visible");
-    letter.classList.add("fade");
+      letter.classList.remove("visible");
+      letter.classList.add("fade");
 
-    setTimeout(() => {
-      letter.style.display = "none";
-      envelope.style.display = "block";
-      setTimeout(() => envelope.classList.add("visible"), 50);
-    }, 800);
-  }
-</script>
+      setTimeout(() => {
+        letter.style.display = "none";
+        envelope.style.display = "block";
+        setTimeout(() => envelope.classList.add("visible"), 50);
+      }, 800);
+    }
+  </script>
 
 </body>
 </html>
-
