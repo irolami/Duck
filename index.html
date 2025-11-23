@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html> <html lang="en"> <head>
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="theme-color" content="#ffb6c1" />
@@ -68,7 +65,7 @@
     h2 {
       color: #ff80a8;
       margin-top: 20px;
-      font-size: 18px; 
+      font-size: 18px;
     }
 
     p {
@@ -101,7 +98,6 @@
       transform: scale(1.1);
     }
 
-    /* Love Letter Card */
     .letter {
       display: none;
       max-width: 450px;
@@ -140,6 +136,9 @@
 
     .button-container {
       margin: 25px 0 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
 
     .button-container button {
@@ -159,7 +158,6 @@
       transform: scale(1.05);
     }
 
-    /* Back Button */
     .back-btn {
       position: fixed;
       bottom: 20px;
@@ -190,6 +188,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- Envelope Card -->
@@ -206,35 +205,37 @@
   <!-- Love Letter -->
   <div class="letter fade" id="loveLetter">
     <img src="https://i.pinimg.com/736x/fb/f3/27/fbf3271b2e567d4b2819f9745e75160c.jpg" alt="Love Photo">
+
     <div class="letter-content">
       <h2>To my Eri</h2>
       <h3>(^o^)</h3>
+
       <p>HIIIIIIIII, It has been a month since you said "yes" to my confession and I will always be thankful for that, I was planning to buy flowers for you but there is a typhoon so the flower shops I went is closed.</p>
 
       <p>I made this because I know you the type of person who does not like going outside, I know it looked rushed but trust me it is not, so don't laugh please!!.</p>
 
-      <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and boundaries, but that does not make me less like and love you. I know this is cheesy or corny but 
-          it is made of hard work and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
+      <p>I know we have not seen each other for a while and I kinda miss you everyday and I'm just respecting your space and boundaries, but that does not make me less like and love you. I know this is cheesy or corny but it is made of hard work and lots of planning, so I do hope you like this one. Once again thank you for giving me a chance and happy 1 month of being with me.</p>
 
       <div class="button-container">
         <button onclick="startOver()">Start Over ♥</button>
+        <button onclick="nextPage()">Next ➜</button>
       </div>
     </div>
   </div>
 
-  <!-- Spotify Player -->
-  <iframe id="spotifyPlayer" 
-    src="https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?utm_source=generator&theme=0" 
-    width="0" height="0" 
+  <!-- Spotify -->
+  <iframe id="spotifyPlayer"
+    src="https://open.spotify.com/embed/track/0KOCCyZ2P4rBaPBtnS09i9?utm_source=generator&theme=0"
+    width="0" height="0"
     frameborder="0" allow="autoplay; clipboard-write; encrypted-media" loading="lazy">
   </iframe>
 
-  <!-- Back Button (link) -->
+  <!-- Back -->
   <a href="https://irolami.github.io/Spacelori/" class="back-btn">Back</a>
 
   <script>
     const spotifyPlayer = document.getElementById("spotifyPlayer");
-    const correctPassword = "1013"; // ← change this to your desired password
+    const correctPassword = "101325";
 
     function askPassword() {
       const input = prompt("Date?💌");
@@ -278,10 +279,11 @@
         setTimeout(() => envelope.classList.add("visible"), 50);
       }, 800);
     }
+
+    function nextPage() {
+      alert("Next page coming soon! (｡•̀ᴗ-)✧");
+    }
   </script>
 
 </body>
 </html>
-
-
-
